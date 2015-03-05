@@ -7,7 +7,7 @@
 <body>
 <p>home</p>
 <%
-//allow access only if session exists
+
 String user = null;
 if(session.getAttribute("user") == null){
     response.sendRedirect("login.html");
