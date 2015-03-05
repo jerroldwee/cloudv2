@@ -343,6 +343,7 @@
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -352,6 +353,7 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+      
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.3</version>
@@ -360,6 +362,19 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+      
+      <plugin>
+              <groupId>com.heroku.sdk</groupId>
+              <artifactId>heroku-maven-plugin</artifactId>
+              <version>0.3.3</version>
+              <configuration>
+                <appName>powerful-falls-1186</appName>
+                <processTypes>
+     <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+  </processTypes>
+              </configuration>
+            </plugin>
+      
     </plugins>
   </build>
 </project>
